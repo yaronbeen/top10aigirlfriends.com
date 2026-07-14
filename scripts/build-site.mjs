@@ -379,6 +379,52 @@ await write('disclosure/index.html', layout({
   path: '/disclosure/',
   content: `<section class="hero"><div class="wrap"><h1>Affiliate Disclosure</h1><p class="lead">Transparency about how this site is monetized.</p></div></section><section class="section"><div class="wrap"><article class="article"><h2>How we earn money</h2><p>Some links on this site are affiliate links. When you click a "Visit Site" button and sign up for a service, we may earn a commission at no extra cost to you. This is how the site covers hosting, research, and testing costs.</p><h2>How rankings are determined</h2><p>Rankings reflect editorial judgment based on hands-on testing across five scored axes: chat quality (30% weight), visual quality (20%), memory retention (20%), privacy posture (15%), and value (15%). Ranking order incorporates use-case breadth and editorial assessment beyond a strict composite-score sort. Affiliate relationships do not influence ranking position.</p><h2>Pricing accuracy</h2><p>Prices shown are approximate and were last verified in July ${site.year}. Promotions, regional pricing, and plan changes can alter actual costs. Always verify current pricing on the service's official website before subscribing.</p><h2>Content</h2><p>This site reviews apps that may include adult content. All visitors must be 18 years or older. Reviews describe product positioning and features; this site does not host adult content directly.</p></article></div></section>`,
 }));
+await write('contact/index.html', layout({
+  title: 'Contact',
+  description: 'Send a message to the team behind Top 10 AI Girlfriends.',
+  path: '/contact/',
+  content: `<section class="hero"><div class="wrap"><h1>Contact</h1><p class="lead">Have a question, found an error, or want to partner? Send a message.</p></div></section><section class="section"><div class="wrap"><article class="article"><form id="contactForm" style="max-width:600px"><div style="margin-bottom:16px"><label style="display:block;font-weight:600;margin-bottom:8px">Your Email</label><input type="email" name="email" required style="width:100%;padding:10px;border:1px solid #444;background:#1a1a1a;color:#fff;border-radius:4px"></div><div style="margin-bottom:16px"><label style="display:block;font-weight:600;margin-bottom:8px">Name (optional)</label><input type="text" name="name" style="width:100%;padding:10px;border:1px solid #444;background:#1a1a1a;color:#fff;border-radius:4px"></div><div style="margin-bottom:16px"><label style="display:block;font-weight:600;margin-bottom:8px">Message</label><textarea name="message" required rows="6" style="width:100%;padding:10px;border:1px solid #444;background:#1a1a1a;color:#fff;border-radius:4px;font-family:inherit"></textarea></div><button type="submit" id="submitBtn" style="background:#ff4fb8;color:#fff;padding:12px 24px;border:none;border-radius:4px;cursor:pointer;font-weight:600">Send Message</button><div id="status" style="margin-top:16px;padding:12px;border-radius:4px;display:none"></div></form><script>
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const status = document.getElementById('status');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  
+  try {
+    const formData = new FormData(e.target);
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: formData.get('email'),
+        name: formData.get('name'),
+        message: formData.get('message'),
+      }),
+    });
+    
+    if (res.ok) {
+      status.textContent = '✓ Message sent! We\'ll get back to you soon.';
+      status.style.background = '#1a1a1a';
+      status.style.borderLeft = '4px solid #4ade80';
+      status.style.color = '#4ade80';
+      status.style.display = 'block';
+      e.target.reset();
+    } else {
+      throw new Error('Failed to send');
+    }
+  } catch (err) {
+    status.textContent = '✗ Error sending message. Please try again.';
+    status.style.background = '#1a1a1a';
+    status.style.borderLeft = '4px solid #ef4444';
+    status.style.color = '#ef4444';
+    status.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Send Message';
+  }
+});
+</script></article></div></section>`,
+}));
 await write('favicon.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#ff4fb8"/><stop offset="1" stop-color="#9b5cff"/></linearGradient></defs><rect width="64" height="64" rx="18" fill="url(#g)"/><text x="32" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="900" fill="white">10</text></svg>`);
 
 console.log(`Built ${1 + services.length + categories.length + posts.length + 3} pages into ${dist}`);

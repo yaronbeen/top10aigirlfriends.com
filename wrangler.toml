@@ -1,0 +1,11 @@
+name = "top10aigirlfriends"
+type = "javascript"
+pages_build_output_dir = "dist"
+
+[env.production]
+
+[env.production.vars]
+CONTACT_EMAIL = "yaron.been@gmail.com"
+
+[env.production.secrets]
+RESEND_API_KEY = ""
