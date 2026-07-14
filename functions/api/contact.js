@@ -26,7 +26,7 @@ export async function onRequest(context) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'noreply@top10aigirlfriends.com',
+        from: 'onboarding@resend.dev',
         to: env.CONTACT_EMAIL,
         replyTo: email,
         subject: `New message from ${name || 'Anonymous'} (${email})`,
