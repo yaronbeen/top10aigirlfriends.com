@@ -360,6 +360,7 @@ await Promise.all(categories.map((category) => write(`categories/${category.slug
 await Promise.all(posts.map((post) => write(`blog/${post.slug}/index.html`, postPage(post))));
 await write('sitemap.xml', sitemap());
 await write('robots.txt', `User-agent: *\nAllow: /\nSitemap: https://${site.domain}/sitemap.xml\n`);
+await write('CNAME', site.domain);
 await write('about/index.html', layout({
   title: 'About Top 10 AI Girlfriends',
   description: 'Who runs Top 10 AI Girlfriends, how reviews are produced, and how the site is monetized.',
