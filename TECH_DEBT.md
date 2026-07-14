@@ -2,8 +2,9 @@
 
 ## P0 Next Session
 
-- Add real affiliate links and disclosure language once programs are approved.
-- Confirm domain hosting target: Namecheap shared hosting, Namecheap Stellar, GitHub Pages, Vercel, Netlify, or Cloudflare Pages.
+- Confirm deployment target: Namecheap shared hosting, GitHub Pages, Vercel, Netlify, or Cloudflare Pages.
+- Point `top10aigirlfriends.com` DNS to the deployment target.
+- Replace official outbound URLs with approved affiliate URLs.
 
 ## P1 This Week
 
@@ -25,3 +26,7 @@
 ## Resolved Items
 
 - 2026-07-13: Chose static generation for fast hosting and easy SEO page generation.
+- 2026-07-14: Added FTC-style disclosure page and footer disclosure.
+- 2026-07-14: Added `/about/` and `/privacy-policy/` pages.
+- 2026-07-14: Added real Replicate-generated images and removed visual placeholders.
+- 2026-07-14: Added automatic score-derived ratings and staggered publication dates.
