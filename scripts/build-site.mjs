@@ -393,14 +393,22 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
   
   try {
     const formData = new FormData(e.target);
+    const payload = {
+      email: formData.get('email'),
+      name: formData.get('name'),
+      message: formData.get('message'),
+    };
+    console.log('Sending contact form:', payload);
+    
     const res = await fetch('/api/contact', {
       method: 'POST',
-      body: JSON.stringify({
-        email: formData.get('email'),
-        name: formData.get('name'),
-        message: formData.get('message'),
-      }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
     });
+    
+    console.log('Response status:', res.status);
+    const data = await res.json();
+    console.log('Response data:', data);
     
     if (res.ok) {
       status.textContent = '✓ Message sent! We\'ll get back to you soon.';
@@ -410,9 +418,10 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
       status.style.display = 'block';
       e.target.reset();
     } else {
-      throw new Error('Failed to send');
+      throw new Error(data.error || 'Failed to send');
     }
   } catch (err) {
+    console.error('Contact form error:', err);
     status.textContent = '✗ Error sending message. Please try again.';
     status.style.background = '#1a1a1a';
     status.style.borderLeft = '4px solid #ef4444';
