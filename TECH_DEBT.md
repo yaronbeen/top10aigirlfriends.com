@@ -2,8 +2,8 @@
 
 ## P0 Next Session
 
-- Confirm deployment target: Namecheap shared hosting, GitHub Pages, Vercel, Netlify, or Cloudflare Pages.
-- Point `top10aigirlfriends.com` DNS to the deployment target.
+- Add GitHub Pages DNS records in Namecheap.
+- Enable GitHub Pages HTTPS enforcement after DNS propagates.
 - Replace official outbound URLs with approved affiliate URLs.
 
 ## P1 This Week
@@ -30,3 +30,4 @@
 - 2026-07-14: Added `/about/` and `/privacy-policy/` pages.
 - 2026-07-14: Added real Replicate-generated images and removed visual placeholders.
 - 2026-07-14: Added automatic score-derived ratings and staggered publication dates.
+- 2026-07-14: Added GitHub Pages workflow and configured Pages custom domain.
