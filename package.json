@@ -1,0 +1,15 @@
+{
+  "name": "top10aigirlfriends.com",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "dev": "npm run build && npx serve dist -l 4173",
+    "check": "npm run build"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "serve": "latest"
+  }
+}
