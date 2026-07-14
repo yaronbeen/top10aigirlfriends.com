@@ -2,8 +2,8 @@
 
 ## P0 Next Session
 
-- Add GitHub Pages DNS records in Namecheap.
-- Enable GitHub Pages HTTPS enforcement after DNS propagates.
+- Add `top10aigirlfriends.com` to Cloudflare DNS and switch Namecheap nameservers to Cloudflare.
+- Connect `top10aigirlfriends.com` and `www.top10aigirlfriends.com` to Cloudflare Pages project `top10aigirlfriends`.
 - Replace official outbound URLs with approved affiliate URLs.
 
 ## P1 This Week
@@ -31,3 +31,4 @@
 - 2026-07-14: Added real Replicate-generated images and removed visual placeholders.
 - 2026-07-14: Added automatic score-derived ratings and staggered publication dates.
 - 2026-07-14: Added GitHub Pages workflow and configured Pages custom domain.
+- 2026-07-14: Deployed current build to Cloudflare Pages project `top10aigirlfriends`.
