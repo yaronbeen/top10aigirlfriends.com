@@ -8,16 +8,16 @@ const dist = join(root, 'dist');
 const assetsDir = join(root, 'src/assets');
 
 const blogImages = {
-  'how-to-choose-ai-girlfriend-app': 'blog-buyers-guide.png',
-  'types-of-ai-companions': 'cat-best-overall.png',
-  'ai-girlfriend-privacy-safety': 'blog-privacy.png',
-  'why-memory-matters': 'blog-memory.png',
-  'free-vs-paid-ai-girlfriend-apps': 'cat-budget.png',
-  'ai-girlfriend-for-men-over-40': 'hero-phone.png',
-  'adult-roleplay-vs-emotional-companionship': 'cat-roleplay.png',
-  'reddit-sentiment-ai-girlfriend-apps': 'blog-reddit.png',
+  'how-to-choose-ai-girlfriend-app': 'blog-buyers-guide.webp',
+  'types-of-ai-companions': 'cat-best-overall.webp',
+  'ai-girlfriend-privacy-safety': 'blog-privacy.webp',
+  'why-memory-matters': 'blog-memory.webp',
+  'free-vs-paid-ai-girlfriend-apps': 'cat-budget.webp',
+  'ai-girlfriend-for-men-over-40': 'hero-phone.webp',
+  'adult-roleplay-vs-emotional-companionship': 'cat-roleplay.webp',
+  'reddit-sentiment-ai-girlfriend-apps': 'blog-reddit.webp',
 };
-const defaultBlogImages = ['blog-comparison.png', 'blog-vs.png', 'blog-reviews.png', 'blog-future.png', 'blog-buyers-guide.png', 'blog-memory.png', 'blog-privacy.png', 'blog-reddit.png', 'cat-conversation.png', 'cat-voice-video.png'];
+const defaultBlogImages = ['blog-comparison.webp', 'blog-vs.webp', 'blog-reviews.webp', 'blog-future.webp', 'blog-buyers-guide.webp', 'blog-memory.webp', 'blog-privacy.webp', 'blog-reddit.webp', 'cat-conversation.webp', 'cat-voice-video.webp'];
 function blogImageFor(post, index) {
   return blogImages[post.slug] ?? defaultBlogImages[index % defaultBlogImages.length];
 }
@@ -34,7 +34,7 @@ const serviceBySlug = (slug) => services.find((service) => service.slug === slug
 const postBySlug = (slug) => posts.find((post) => post.slug === slug);
 const pagePath = (path) => join(dist, path);
 
-function layout({ title, description, path = '/', content, ogType = 'website', ogImage = '/assets/hero-main.png', schema = '', noindex = false }) {
+function layout({ title, description, path = '/', content, ogType = 'website', ogImage = '/assets/hero-main.webp', schema = '', noindex = false }) {
   const canonical = `https://${site.domain}${path}`;
   const ogImageFull = `https://${site.domain}${ogImage}`;
   const dateStr = `${site.year}-07-13`;
@@ -100,10 +100,10 @@ function scoreBars(service) {
 }
 
 function serviceImage(service) {
-  return `/assets/service-${service.slug}.png`;
+  return `/assets/service-${service.slug}.webp`;
 }
 function categoryImage(category) {
-  return `/assets/cat-${category.slug}.png`;
+  return `/assets/cat-${category.slug}.webp`;
 }
 function artCard(service, size = 'compact') {
   return `<div class="service-art ${size}" aria-label="${esc(service.name)} visual" style="background-image:url('${serviceImage(service)}')">
@@ -146,7 +146,7 @@ function homePage() {
           <div class="hero-actions"><a class="btn" href="#rankings">See Top 10</a><a class="btn secondary" href="#methodology">How We Score</a></div>
         </div>
         <div class="hero-card" aria-label="Top picks preview">
-          <img class="hero-img" src="/assets/hero-main.png" alt="AI companion app interface concept" loading="eager">
+          <img class="hero-img" src="/assets/hero-main.webp" alt="AI companion app interface concept" loading="eager">
         </div>
       </div>
     </section>
@@ -154,11 +154,11 @@ function homePage() {
       <div class="wrap">
         <div class="section-head"><div><p class="eyebrow">Scoring methodology</p><h2>How we evaluate each app</h2></div><p>Every score is editorial judgment on a 1-10 scale across five axes, based on hands-on testing, public documentation review, and cross-referencing community sentiment.</p></div>
         <div class="cards">
-          <div class="card"><img class="card-img" src="/assets/cat-conversation.png" alt="Conversation quality" loading="lazy"><h3>Chat quality (weight: 30%)</h3><p>We run the same prompt sequence on every app: a casual opener, a personal detail to remember, a roleplay setup, and a follow-up the next day. We score natural tone, topic-switching, and whether replies feel scripted or repetitive after 10+ exchanges.</p></div>
-          <div class="card"><img class="card-img" src="/assets/cat-realistic-visuals.png" alt="Visual quality" loading="lazy"><h3>Visuals (weight: 20%)</h3><p>We generate multiple images of the same character and check consistency, detail, and whether the companion stays recognizable. Apps without image generation score lower here but can rank high overall on other axes.</p></div>
-          <div class="card"><img class="card-img" src="/assets/blog-memory.png" alt="Memory retention" loading="lazy"><h3>Memory (weight: 20%)</h3><p>We share a harmless preference on day one, then reference it on day three without a reminder. Apps that forget context lose points fast because continuity is what separates a companion from a chatbot.</p></div>
-          <div class="card"><img class="card-img" src="/assets/blog-privacy.png" alt="Privacy" loading="lazy"><h3>Privacy (weight: 15%)</h3><p>We check published privacy policies, billing descriptor names, account deletion flows, 2FA availability, and whether the service requires real identity. Apps that are vague about data retention or lack deletion controls score lower.</p></div>
-          <div class="card"><img class="card-img" src="/assets/cat-budget.png" alt="Value" loading="lazy"><h3>Value (weight: 15%)</h3><p>We compare what you get on each pricing tier: message limits, image credits, voice access, video support, and cancellation friction. Aggressive upsells and unclear token costs reduce the value score.</p></div>
+          <div class="card"><img class="card-img" src="/assets/cat-conversation.webp" alt="Conversation quality" loading="lazy"><h3>Chat quality (weight: 30%)</h3><p>We run the same prompt sequence on every app: a casual opener, a personal detail to remember, a roleplay setup, and a follow-up the next day. We score natural tone, topic-switching, and whether replies feel scripted or repetitive after 10+ exchanges.</p></div>
+          <div class="card"><img class="card-img" src="/assets/cat-realistic-visuals.webp" alt="Visual quality" loading="lazy"><h3>Visuals (weight: 20%)</h3><p>We generate multiple images of the same character and check consistency, detail, and whether the companion stays recognizable. Apps without image generation score lower here but can rank high overall on other axes.</p></div>
+          <div class="card"><img class="card-img" src="/assets/blog-memory.webp" alt="Memory retention" loading="lazy"><h3>Memory (weight: 20%)</h3><p>We share a harmless preference on day one, then reference it on day three without a reminder. Apps that forget context lose points fast because continuity is what separates a companion from a chatbot.</p></div>
+          <div class="card"><img class="card-img" src="/assets/blog-privacy.webp" alt="Privacy" loading="lazy"><h3>Privacy (weight: 15%)</h3><p>We check published privacy policies, billing descriptor names, account deletion flows, 2FA availability, and whether the service requires real identity. Apps that are vague about data retention or lack deletion controls score lower.</p></div>
+          <div class="card"><img class="card-img" src="/assets/cat-budget.webp" alt="Value" loading="lazy"><h3>Value (weight: 15%)</h3><p>We compare what you get on each pricing tier: message limits, image credits, voice access, video support, and cancellation friction. Aggressive upsells and unclear token costs reduce the value score.</p></div>
         </div>
         <div class="notice" style="margin-top:20px"><strong>Transparency note:</strong> External "Visit Site" links may use affiliate tracking. Rankings reflect editorial judgment and are not influenced by affiliate status. Scores are updated when platforms ship major changes. Last full re-test: July ${site.year}.</div>
       </div>
@@ -204,7 +204,7 @@ function reviewSchema(service) {
     "datePublished": service.datePublished,
     "dateModified": service.dateModified,
     "description": service.tagline,
-    "image": `https://${site.domain}/assets/service-${service.slug}.png`,
+    "image": `https://${site.domain}/assets/service-${service.slug}.webp`,
   })}</script>`;
 }
 
@@ -227,7 +227,7 @@ function reviewPage(service) {
     description: service.tagline,
     path: `/reviews/${service.slug}/`,
     ogType: 'article',
-    ogImage: `/assets/service-${service.slug}.png`,
+    ogImage: `/assets/service-${service.slug}.webp`,
     schema: reviewSchema(service),
     content: `<section class="hero"><div class="wrap hero-grid"><div><p class="eyebrow">#${service.rank} &middot; ${site.year} review</p><h1>${esc(service.name)} Review</h1><p class="lead">${esc(service.tagline)}</p><div class="hero-actions"><a class="btn" href="${service.url}" rel="nofollow sponsored noopener noreferrer" target="_blank">Visit ${esc(service.name)}</a><a class="btn secondary" href="/#rankings">Back to Rankings</a></div></div><div class="review-hero-img"><img src="${serviceImage(service)}" alt="${esc(service.name)} visual concept" loading="eager"></div></div></section>
     <section class="section"><div class="wrap content-grid"><article class="article">
@@ -348,9 +348,9 @@ await copyFile(join(root, 'src/styles.css'), join(dist, 'styles.css'));
 const distAssets = join(dist, 'assets');
 await mkdir(distAssets, { recursive: true });
 try {
-  const assetFiles = await readdir(assetsDir);
+  const assetFiles = (await readdir(assetsDir)).filter((f) => f.endsWith('.webp'));
   await Promise.all(assetFiles.map((file) => copyFile(join(assetsDir, file), join(distAssets, file))));
-  console.log(`Copied ${assetFiles.length} asset files`);
+  console.log(`Copied ${assetFiles.length} WebP asset files`);
 } catch { console.log('No assets directory found, skipping'); }
 await write('index.html', homePage());
 await write('categories/index.html', categoryIndexPage());
